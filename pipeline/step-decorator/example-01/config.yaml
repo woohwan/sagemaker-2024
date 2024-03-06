@@ -8,7 +8,8 @@ SageMaker:
         RoleArn: arn:aws:iam::532805286864:role/SageMakerExecutionRole
         InstanceType: ml.m5.2xlarge
         Dependencies: "./requirements.txt"
-        JobCondaEnvironment: "sagemaker"
+        # JobCondaEnvironment: "sagemaker"
+        ImageUri: '763104351884.dkr.ecr.ap-northeast-2.amazonaws.com/pytorch-training:2.2.0-cpu-py310-ubuntu20.04-sagemaker'
         IncludeLocalWorkDir: true
         CustomFileFilter:
           IgnoreNamePatterns: # files or directories to ignore
