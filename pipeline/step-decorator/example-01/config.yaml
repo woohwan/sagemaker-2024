@@ -7,7 +7,8 @@ SageMaker:
         # Uncomment the following line and replace with the right execution role if in a local IDE
         RoleArn: arn:aws:iam::532805286864:role/SageMakerExecutionRole
         InstanceType: ml.m5.2xlarge
-        Dependencies: ./requirements.txt
+        Dependencies: "./requirements.txt"
+        JobCondaEnvironment: "sagemaker"
         IncludeLocalWorkDir: true
         CustomFileFilter:
           IgnoreNamePatterns: # files or directories to ignore
