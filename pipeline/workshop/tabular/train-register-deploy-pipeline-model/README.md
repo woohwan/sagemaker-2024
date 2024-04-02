@@ -1,0 +1,2 @@
+data: https://www.dcc.fc.up.pt/~ltorgo/Regression/cal_housing.html  
+참고: https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/train-register-deploy-pipeline-model/train%20register%20and%20deploy%20a%20pipeline%20model.ipynb
