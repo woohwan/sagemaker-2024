@@ -50,8 +50,8 @@ def get_test_data(test_dir):
     return x_test, y_test
 
 def get_model():
-    inputs = tf.keras.input(shape=(8,0))
-    hidden_1 = tf.keras.layers.Dense(8, activation="tanh")(inpus)
+    inputs = tf.keras.Input(shape=(8,))
+    hidden_1 = tf.keras.layers.Dense(8, activation="tanh")(inputs)
     hidden_2 = tf.keras.layers.Dense(4, activation="sigmoid")(hidden_1)
     outputs = tf.keras.layers.Dense(1)(hidden_2)
     return tf.keras.Model(inputs=inputs, outputs=outputs)
@@ -61,8 +61,13 @@ if __name__ == "__main__":
     
     print("Training data location: {}".format(args.train))
     print("Test data location: {}".format(args.test))
+    
+    # 서버에서 모델 위치 확인 용
+    print("model location is {}".format(args.sm_model_dir))
+    
     x_train, y_train = get_train_data(args.train)
     x_test, y_test = get_test_data(args.test)
+    
     
     batch_size = args.batch_size
     epochs = args.epochs
@@ -72,7 +77,8 @@ if __name__ == "__main__":
     )
     
     model = get_model()
-    optimizer = tf.keras.optimizer.SGD(learning_rate)
+    optimizer = tf.keras.optimizers.SGD(learning_rate)
+    model.compile(optimizer=optimizer, loss="mse")
     model.fit(
         x_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(x_test, y_test)
     )
