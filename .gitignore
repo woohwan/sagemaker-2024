@@ -5,6 +5,7 @@
 *.zip
 *.tar
 *.gz
+*.tgz
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
