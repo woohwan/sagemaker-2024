@@ -1,6 +1,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
+# except datasets: zip, tar
+*.zip
+*.tar
+*.gz
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
